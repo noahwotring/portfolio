@@ -1,5 +1,5 @@
 import React, {Component, createContext} from 'react';
-import {auth} from 'C:\\Users\\Noah Wotring\\Desktop\\Code\\portfolio\\ReactUserDataPractice\\my-app\\src\\firebase.js';
+import {auth} from 'C:\\Users\\Noah Wotring\\Desktop\\Code\\portfolio\\src\\firebase.js';
 import {generateUserDocument} from '../firebase.js';
 export const UserContext = createContext({user: null});
 
