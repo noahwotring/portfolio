@@ -1,0 +1,13 @@
+.profile {
+      margin: 0px auto;
+}
+.col-1 {
+  width: 100%
+}
+h1.head {
+  color: black;
+  font-size: 32px
+}
+*{
+  box-sizing: border-box
+}

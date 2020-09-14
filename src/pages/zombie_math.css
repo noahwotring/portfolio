@@ -1,0 +1,45 @@
+.zombie_math_background {
+  background: url('../img/apocbackground.jpg') top center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.health {
+  border: black 5px solid;
+  background-color: red;
+  width: 100%;
+  display: inline-block;
+}
+
+.problemBlock {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  left: 250px;
+  bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.9s;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  width:1000px;
+  text-align: center;
+  color: white;
+  background: rgba(1,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+}
+
+
+
+.hit {
+  transform: scale(1.1);
+  border-color: red;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+input{
+  width: 300px
+}

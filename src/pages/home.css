@@ -1,0 +1,57 @@
+
+
+
+.welcome {
+  text-align: center;
+}
+.news_post_container {
+  margin: 0 auto;
+
+}
+
+.form {
+  width: 75%;
+  margin: 0 auto;
+  display: inline-block;
+  background-color: rgb(169,169,169,.3);
+  border-radius: 1%;
+  overflow-x: hidden
+}
+.center_block{
+}
+
+.submitPost {
+  border: 1px solid grey;
+  margin: 0 auto;
+  bottom: 100%;
+}
+.label_block {
+  margin: 0 auto;
+  text-align: center;
+}
+.title_draft {
+  background-color: black;
+  font-size: 15px;
+  color: white
+}
+
+.post_draft {
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  overflow-y: auto
+}
+
+
+button {
+  border: 1px solid grey;
+
+
+
+}
+hover::button{
+  color: white
+}

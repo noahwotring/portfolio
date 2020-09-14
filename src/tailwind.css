@@ -1,0 +1,26 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "Gruppo";
+  src: url('https://fonts.googleapis.com/css?family=Gruppo');
+
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+}
+
+/* This will apply your new font to all the body elements of the website */
+
+
+
+p
+{
+  font-family: "Raleway"
+}

@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.09d95da6.chunk.css",
+    "main.js": "/static/js/main.dd9bc24b.chunk.js",
+    "main.js.map": "/static/js/main.dd9bc24b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.83c3e0c4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.83c3e0c4.js.map",
+    "static/js/2.f7ea10b0.chunk.js": "/static/js/2.f7ea10b0.chunk.js",
+    "static/js/2.f7ea10b0.chunk.js.map": "/static/js/2.f7ea10b0.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.5b08719c0820cdf774ed8206ba5e30ea.js": "/precache-manifest.5b08719c0820cdf774ed8206ba5e30ea.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.09d95da6.chunk.css.map": "/static/css/main.09d95da6.chunk.css.map",
+    "static/js/2.f7ea10b0.chunk.js.LICENSE.txt": "/static/js/2.f7ea10b0.chunk.js.LICENSE.txt",
+    "static/media/zombie_math.css": "/static/media/apocbackground.3c4b6264.jpg",
+    "static/media/logo.png": "/static/media/logo.bbb694b3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.83c3e0c4.js",
+    "static/js/2.f7ea10b0.chunk.js",
+    "static/css/main.09d95da6.chunk.css",
+    "static/js/main.dd9bc24b.chunk.js"
+  ]
+}

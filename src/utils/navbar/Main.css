@@ -1,0 +1,90 @@
+
+
+.bg {
+  position: absolute;
+  background: url('../img/apocbackground.jpg') bottom center;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  margin-top: 0;
+  background-position: center;
+  background-repeat: no-repeat
+}
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.mainheader {
+  font-family: creepster, sans-serif;
+  size: 400px;
+  color: red;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.health {
+  border: black 5px solid;
+  background-color: red;
+  width: 100%;
+  display: inline-block;
+}
+
+
+input {
+  width: 200px
+}
+
+.response {
+  display: inline;
+  color: #9a9a9a;
+}
+
+.problemBlock {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  left: 250px;
+  bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.9s;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  width:1000px;
+  text-align: center;
+  color: white;
+  background: rgba(1,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+}
+.hit {
+  transform: scale(1.1);
+  border-color: red;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+
+#theProblem {
+  align: center;
+  margin: auto;
+  font-size: 80px;
+  position: relative;
+
+}
+.problemButtonContainer {
+  position: relative;
+  outline: black 2px solid;
+  margin: auto;
+  align: left
+}
+#answer {
+  height: 80px;
+  font-size: 80px;
+}
+
+#answerButton {
+  position: relative;
+  margin: auto;
+  width: 450px;
+  height: 40px;
+}
