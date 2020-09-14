@@ -7,8 +7,10 @@ function App(){
 const user = useContext(UserContext);
 
   return(
-    <UserProvider className="App styleContainer">
-      <Application user={user} />
+    <UserProvider  className="App styleContainer">
+      <div  className="App styleContainer">
+       <Application user={user} />
+      </div>
     </UserProvider>
 
 

@@ -15,6 +15,7 @@ import RepChoose from './components/RepChoose.js';
 import {auth,getAllUsers} from './firebase.js';
 import './utils/navbar/navbar.css';
 import PublicPage from "./pages/PublicPage";
+import SimonSings from "./pages/SimonSings";
 
 /*
 import ProfilePage from ".components/ProfilePage";
@@ -174,7 +175,9 @@ function Application(){
       <Switch>
 
 
-
+        <Route path="/SimonSings" >
+          <SimonSings />
+        </Route>
 
         <Route path="/PublicPage/:displayName" >
           <PublicPage />

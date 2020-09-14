@@ -1,5 +1,11 @@
 
  .styleContainer{
-  background: black url('/img/white.jpg') no-repeat center fixed;
+  background:  url('./img/white.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-size: 100% 100%;
   font-family: 'Actor';
+  width: 100%;
+  z-index: 100;
+  height: 100%
+
 }

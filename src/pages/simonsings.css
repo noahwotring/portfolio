@@ -1,0 +1,65 @@
+div {
+}
+
+.startContainer {
+  margin: 0 auto
+}
+h1 {
+  color: black;
+  font-size: 50px;
+  display: inline;
+  margin-top: 30px;
+
+  font-weight: bolder
+}
+
+.startButton {
+  display: inline;
+  margin-top: 30px
+}
+
+
+.gridContainer {
+  width:450px;
+  margin: auto;
+  margin-top: 50px
+}
+/* soundbox stuff */
+div.soundBox {
+  width: 130px;
+  height:130px;
+  margin: 0;
+  margin-bottom: 3px;
+  border-radius:23%;
+
+}
+/*box-shadow: -2px 2px black, -2px 2px black, -1px 1px black;
+  border: 1px solid black; */ 
+.soundBox1 {
+  background: #DC143C fixed center;
+}
+.soundBox2 {
+  background: rgb(150,255,100);
+}
+.soundBox3 {
+  background: rgb(0,0,255);
+}
+.soundBox4 {
+  background: rgb(72,61,139) ;
+}
+
+.soundBox5 {
+  background: rgb(255,0,255) fixed center;
+}
+.soundBox6 {
+  background: rgb(	34,139,34) fixed center;
+}
+.soundBox7 {
+background: 	rgb(255,255,0) fixed center;
+}
+.soundBox8 {
+  background: rgb(128,0,0);
+}
+.soundBox9 {
+  background: rgb(255,100,50);
+}
