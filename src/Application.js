@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState,useRouteMatch} from 'react';
 import {BrowserRouter, Route, Switch, Link,Redirect, useLocation,history} from 'react-router-dom';
 import SignIn from "./components/SignIn";
 import ProfilePage from "./pages/ProfilePage";
-import ZombieMath from "./pages/ZombieMath"
 import PasswordReset from "./components/PasswordReset";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -14,7 +13,6 @@ import white from './img/white.jpg';
 import RepChoose from './components/RepChoose.js';
 import {auth,getAllUsers} from './firebase.js';
 import './utils/navbar/navbar.css';
-import PublicPage from "./pages/PublicPage";
 import SimonSings from "./pages/SimonSings";
 
 /*
@@ -179,9 +177,6 @@ function Application(){
           <SimonSings />
         </Route>
 
-        <Route path="/PublicPage/:displayName" >
-          <PublicPage />
-        </Route>
 
 
 
@@ -228,10 +223,7 @@ function Application(){
 
           <Home />
         </Route>
-        <Route path="/ZombieMath" exact>
-          <ZombieMath />
-        </Route>
-
+        
 
 
 

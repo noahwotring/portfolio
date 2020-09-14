@@ -1,8 +1,8 @@
 
  .styleContainer{
-  background:  url('./img/white.jpg') no-repeat center center fixed;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./img/white.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-size: 100% 100%;
+
   font-family: 'Actor';
   width: 100%;
   z-index: 100;
