@@ -113,10 +113,9 @@ function Application(){
 
     return(
 
-      <BrowserRouter>
+      <div>
 
-
-      <div className="border navbar mx-auto bg-black text-white w-full inline-block shadow-md  font-Actor text-Actor">
+      <div className=" navbar mx-auto bg-black text-white w-full inline-block shadow-md  font-Actor text-Actor">
         <div className="signinBox mr-5 float-left overflow-hidden">
            {!user?
           <Link to="/SignIn">
@@ -236,7 +235,7 @@ function Application(){
       </Switch>
       </div>
 
-      </BrowserRouter>
+        </div>
 
 
     )
