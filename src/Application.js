@@ -6,9 +6,10 @@ import PasswordReset from "./components/PasswordReset";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import SignUp from "./components/SignUp";
+import ZombieMath from "./pages/ZombieMath";
 import News from "./pages/News";
 import {UserContext} from './providers/UserProvider.jsx';
-import logo from './img/logo.png';
+import logo from './img/fancyN.jpg';
 import white from './img/white.jpg';
 import RepChoose from './components/RepChoose.js';
 import {auth,getAllUsers} from './firebase.js';
@@ -154,8 +155,19 @@ function Application(){
             <Link to="/ZombieMath">Zombie Math</Link>
           </li> */}
 
+          <li className="dropdown  mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
+          <button className="drop_down_button p-16px mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100  border-none">Projects </button>
 
-            {allUsers.map((dauser) => <li className="mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100"> <Link to={`/PublicPage/${dauser}`}> {dauser} </Link> </li>)}
+
+                <div className="dropdown_contents   w-full bg-black ">
+                  <Link to="./SimonSings" className="w-full alink py-1 inline hover:text-blue-100 hover:bg-grey-700"> Simon Sings </Link>
+                  <Link to="./ZombieMath" className="alink py-1 inline hover:bg-grey-700"> Zombie Math </Link>
+
+                </div>
+
+          </li>
+
+
 
         </ul>
         <div className="inOut float-right mx-5  hover:bg-gray-500 hover:text-blue-100" >
@@ -205,6 +217,9 @@ function Application(){
 
           <About />
         </Route>
+        <Route path="/ZombieMath">
+          <ZombieMath />
+        </Route>
         <Route path="/PasswordReset" >
           <PasswordReset />
         </Route>
@@ -223,7 +238,7 @@ function Application(){
 
           <Home />
         </Route>
-        
+
 
 
 

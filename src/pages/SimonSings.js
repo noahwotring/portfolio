@@ -8,6 +8,7 @@ import g4 from "../audio/g4.wav";
 import a4 from "../audio/a4.wav";
 import b4 from "../audio/b4.wav";
 import c5 from "../audio/c5.wav";
+import fart from "../audio/fart.wav";
 
 
 const soundBox = () => {
@@ -18,11 +19,47 @@ const soundBox = () => {
 
 const SimonSings = () => {
   const [score,changeScore] = useState(0);
+  const [playSongState,togglePlaySongState] = useState(false);
+  useEffect(() => {
+    if(gamePlaying){
+
+        progressAddHandler();
+
+        runProgression();
+        toggleResponseState(true);
+    }
+
+  },[playSongState])
   const [sound,onSound] = useState(true);
   const [guesses,addGuess] = useState([]);
+
+  const [round,nextRound] = useState(0);
+
+
+  const [responseState,toggleResponseState] = useState(false);
+useEffect(() => {
+  if(responseState){
+    console.log(progression)
+
+    }
+
+},[responseState])
+
   const [gamePlaying,toggleGame] = useState(false);
-  const [progression,addToProgression] = useState([1,2,3,5,3,2,1]);
+  useEffect(()=>{
+    if(gamePlaying){
+
+      togglePlaySongState(!playSongState)
+    } else if(responseState){
+      addGuess([]);
+    }
+  },[gamePlaying])
+
+  const [answerState,toggleAnswerState] = useState(false);
+
+  const [progression,addToProgression] = useState([]);
   const [playSong,togglePlaySong] = useState(false);
+
   const [currentNote,nextNote] = useState(0);
 
   const soundObj = {
@@ -33,50 +70,102 @@ const SimonSings = () => {
     5: g4,
     6: a4,
     7: b4,
-    8: c5
+    8: c5,
+    9: c5
   }
-  const playProgression = () => {
+  const runProgression = () => {
     let i = 0;
     const id = setInterval(() => {
-      soundBoop(progression[i++]);
-      panelFlash(i);
-      if(i === progression.length) clearInterval(id);
-    },1000)
+      panelFlash(progression[i]);
+      playSound(progression[i]);
+      i++
+      if(i === progression.length) clearInterval(id)
+    },1500)
+    setTimeout(()=>toggleResponseState(!responseState),4000)
   }
+
   const soundBoop = (key) => {
     setTimeout(() => {
-      playSound(key)
+      playSound(key);
     },500);
-
-
   }
+
+
+  const resetGame = () => {
+    addToProgression([]);
+    nextRound(0);
+    toggleGame(!gamePlaying)
+  }
+
+
+
+  const generateProgression = () => {
+    const generatedNum = Math.floor(Math.random() * 8) + 1;
+    return generatedNum
+  }
+  const progressAddHandler = () => {
+    var num = generateProgression();
+    var cur = progression;
+    cur.push(num);
+    addToProgression(cur);
+  }
+  //effect of events on the soundboxes
   const panelFlash = (key) => {
-    var panel = document.getElementById(key)
-    console.log(panel);
+    var panel = document.getElementById(key);
+
+    panel.classList.add("soundBoxSelected");
+    document.querySelector(`.soundBox${key}`).addEventListener('transitionend', removeTransition);
   }
+  const removeTransition = (e) => {
+    if(e.propertyName === 'transform'){
+      e.target.classList.remove('soundBoxSelected')
+
+    }
+  }
+  const soundBoxPressHandler = (e) => {
+
+    if(responseState){
+      panelFlash(e.target.id)
+      playSound(e.target.id);
+      var newguess = e.target.id;
+      var oldguesses = guesses;
+      oldguesses.push(newguess);
+      addGuess(oldguesses)
+
+        if(guesses[guesses.length-1] != progression[guesses.length-1]){
+          var audio = new Audio(fart);
+          audio.play();
+          toggleResponseState(!responseState);
+          toggleGame(!gamePlaying);
+          resetGame();
+        }
+        panelFlash(e.target.id)
+        playSound(e.target.id);
+
+        if(guesses.length === progression.length){
+          var add = round + 1;
+          addGuess([]);
+          nextRound(add);
+          togglePlaySongState(!playSongState)
+          toggleResponseState(!responseState);
+
+        }
+    }
+  }
+//playing the sound
   const playSound = (key) => {
-    console.log(key);
     let audio = new Audio(soundObj[key]);
     var playPromise = audio.play();
     if(playPromise !== undefined){
       playPromise.then(function() {
       }).catch(function(error){
-        alert(error)
+        console.log(error)
       });
     }
-
-  }
-  const soundBoxPressHandler = (e) => {
-    playSound(e.target.id);
   }
 
-  const hobbitTheme = [1,2,3,5,3,2,1];
 
-  useEffect(() => {
 
-    playSound(hobbitTheme[currentNote]);
-
-  },[])
 
   const thisONe = <div className="grid grid-cols-3 gap-1">
            <div className="soundBox soundBox1"> 1</div>
@@ -99,9 +188,10 @@ const SimonSings = () => {
 
   return (
     <div className="container relative mx-auto">
-      <div className="text-center startContainer">
+      <div className="text-center my-8 contents-center startContainer">
         <h1 className="inline"> Simon Sings </h1>
-        <button className="inline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={playProgression}> {gamePlaying? "End Game" : "Start Game"} </button>
+        <button className="inline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => toggleGame(!gamePlaying)}> {gamePlaying? "End Game" : "Start Game"} </button>
+        <h1> {responseState ? "response" : ""} <h5> {gamePlaying ? round : ""} </h5> </h1>
       </div>
       <div className="gridContainer">
         <div className="grid grid-cols-3 gap-0">

@@ -7,7 +7,7 @@ function App(){
 const user = useContext(UserContext);
 
   return(
-    <UserProvider  className="App styleContainer">
+    <UserProvider>
       <div  className="App styleContainer">
        <Application user={user} />
       </div>
