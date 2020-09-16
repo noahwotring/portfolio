@@ -125,8 +125,7 @@ useEffect(() => {
   const soundBoxPressHandler = (e) => {
 
     if(responseState){
-      panelFlash(e.target.id)
-      playSound(e.target.id);
+
       var newguess = e.target.id;
       var oldguesses = guesses;
       oldguesses.push(newguess);
@@ -134,11 +133,13 @@ useEffect(() => {
 
         if(guesses[guesses.length-1] != progression[guesses.length-1]){
           var audio = new Audio(fart);
+          alert("Failure");
           audio.play();
           toggleResponseState(!responseState);
           toggleGame(!gamePlaying);
           resetGame();
         }
+        else {
         panelFlash(e.target.id)
         playSound(e.target.id);
 
@@ -148,7 +149,7 @@ useEffect(() => {
           nextRound(add);
           togglePlaySongState(!playSongState)
           toggleResponseState(!responseState);
-
+        }
         }
     }
   }
@@ -188,12 +189,15 @@ useEffect(() => {
 
   return (
     <div className="container relative mx-auto">
-      <div className="text-center my-8 contents-center startContainer">
-        <h1 className="inline"> Simon Sings </h1>
-        <button className="inline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => toggleGame(!gamePlaying)}> {gamePlaying? "End Game" : "Start Game"} </button>
-        <h1> {responseState ? "response" : ""} <h5> {gamePlaying ? round : ""} </h5> </h1>
+      <div className="text-center block my-8 mx-auto contents-center border w-1/2 startContainer">
+        <h1 className="  "> Simon Sings </h1>
+        <button className={`click_button border float-right hover:bg-red-700 text-white font-bold h-32 w-32  rounded-full  shadow-2xl ${gamePlaying? "bg-red-800" : "  bg-green-800 "}`} onClick={() => toggleGame(!gamePlaying)}> {gamePlaying? "End Game" : "Start Game"} </button>
+        <p className="mt-0 ml-1/2"> Round: {round}</p>
+
       </div>
-      <div className="gridContainer">
+
+
+      <div className="gridContainer block">
         <div className="grid grid-cols-3 gap-0">
           <div id="1" className="soundBox1 soundBox" onClick={(e) => soundBoxPressHandler(e)}/>
           <div id="2" className="soundBox2 soundBox"  onClick={(e) => soundBoxPressHandler(e)}/>
@@ -205,6 +209,7 @@ useEffect(() => {
           <div id="8" className="soundBox8 soundBox"onClick={(e) => soundBoxPressHandler(e)} />
           <div id="9" className="soundBox9 soundBox" onClick={(e) => soundBoxPressHandler(e)}/>
         </div>
+
     </div>
 
 

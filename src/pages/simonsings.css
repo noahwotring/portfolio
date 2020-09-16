@@ -2,22 +2,25 @@ div {
 }
 
 .startContainer {
-  margin: 0 auto
+  margin: 0 auto;
 }
 h1 {
   color: black;
   font-size: 50px;
   display: inline;
   margin-top: 30px;
-
+  text-align: center;
   font-weight: bolder
 }
 
 .startButton {
   display: inline;
-  margin-top: 30px
 }
+.click_button {
+  display: inline-block;
+  border: 2px solid black;
 
+}
 .soundBoxSelected {
   transform: scale(1.05);
   filter: brightness(2);
@@ -25,6 +28,7 @@ h1 {
 .gridContainer {
   width:450px;
   margin: auto;
+
   margin-top: 50px
 }
 /* soundbox stuff */

@@ -95,6 +95,7 @@ export const generateUserDocument = async (user,additionalData) => {
 
 
   }
+  // generating posts
 
   export const generateNewsPosts = async (justOwned = false) => {
     let collectedPosts = [];
@@ -108,10 +109,11 @@ export const generateUserDocument = async (user,additionalData) => {
                               body: doc.data().body,
                               owner_id: doc.data().owner_id,
                               owner : doc.data().owner,
-                              date: doc.data().date_created,
+                              date_created: doc.data().date_created,
                               id: doc.id
                             })
       });
+      console.log(collectedPosts.date);
       return collectedPosts;
       } catch (error) {
         console.error("Error fetching data", error)

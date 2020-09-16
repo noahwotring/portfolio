@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState,useRouteMatch} from 'react';
 import {BrowserRouter, Route, Switch, Link,Redirect, useLocation,history} from 'react-router-dom';
 import SignIn from "./components/SignIn";
 import ProfilePage from "./pages/ProfilePage";
+import SideBar from "./components/Sidebar.js";
 import PasswordReset from "./components/PasswordReset";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -10,7 +11,6 @@ import ZombieMath from "./pages/ZombieMath";
 import News from "./pages/News";
 import {UserContext} from './providers/UserProvider.jsx';
 import logo from './img/fancyN.jpg';
-import white from './img/white.jpg';
 import RepChoose from './components/RepChoose.js';
 import {auth,getAllUsers} from './firebase.js';
 import './utils/navbar/navbar.css';
@@ -21,41 +21,7 @@ import ProfilePage from ".components/ProfilePage";
 import PasswordReset from "./components/PasswordReset";
 */
 
-const SideBar = () => {
-  let user = useContext(UserContext);
 
-
-
-  return (<div className="sidebar  w-2/12 absolute   border container text-center  inline-block ">
-      <div className="sidebar_photo_container items-start w-half text-center mt-10">
-        {user?  <div
-                  style={{
-                      background:
-                        `url('${user.photoURL}') no-repeat center center`,
-                      backgroundSize: "cover",
-                      height: "100px",
-                      width: "100px"
-                    }}
-                  className="border border-blue-300 w-3/4 h-3/4 m-auto "
-                />
-                :
-                <img src={logo} alt="logo" className="userPhoto  w-3/4 h-3/4 m-auto  hover:text-white-300 opacity-25" />
-          }
-
-        {user?
-          <h5> Welcome, {user.displayName}  </h5>
-          :
-          <h5> Welcome, Please <Link to="./SignIn"> <span className="hover:text-blue-200">Sign In </span> </Link> </h5>
-        }
-      </div>
-      <ul>
-       <li onClick={()=>{console.log(user.photoURL)}}>Edit Username </li>
-       <li>Edit Profile Picture </li>
-       <li>Edit Username </li>
-       <li>Edit Profile Picture </li>
-     </ul>
-   </div>)
-}
 function Application(){
   const user = useContext(UserContext);
 
@@ -157,24 +123,17 @@ function Application(){
 
           <li className="dropdown  mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
           <button className="drop_down_button p-16px mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100  border-none">Projects </button>
-
-
                 <div className="dropdown_contents   w-full bg-black ">
                   <Link to="./SimonSings" className="w-full alink py-1 inline hover:text-blue-100 hover:bg-grey-700"> Simon Sings </Link>
                   <Link to="./ZombieMath" className="alink py-1 inline hover:bg-grey-700"> Zombie Math </Link>
-
                 </div>
-
           </li>
-
-
 
         </ul>
         <div className="inOut float-right mx-5  hover:bg-gray-500 hover:text-blue-100" >
         {user?  <button onClick={() => auth.signOut().then(window.location = "/SignIn") }> Sign Out </button>
               :
                 <Link to="/SignIn" exact> Sign In </Link> }
-
         </div>
 
       </div>
@@ -188,10 +147,6 @@ function Application(){
         <Route path="/SimonSings" >
           <SimonSings />
         </Route>
-
-
-
-
 
 
         <Route path="/ProfilePage/" exact>
@@ -238,8 +193,6 @@ function Application(){
 
           <Home />
         </Route>
-
-
 
 
       </Switch>
