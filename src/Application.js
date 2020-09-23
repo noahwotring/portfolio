@@ -4,8 +4,9 @@ import SignIn from "./components/SignIn";
 import ProfilePage from "./pages/ProfilePage";
 import SideBar from "./components/Sidebar.js";
 import PasswordReset from "./components/PasswordReset";
+import ColorPlay from "./pages/ColorPlay";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Resume from "./pages/Resume.js";
 import SignUp from "./components/SignUp";
 import ZombieMath from "./pages/ZombieMath";
 import News from "./pages/News";
@@ -15,6 +16,7 @@ import RepChoose from './components/RepChoose.js';
 import {auth,getAllUsers} from './firebase.js';
 import './utils/navbar/navbar.css';
 import SimonSings from "./pages/SimonSings";
+import ComeVisit from "./pages/ComeVisit";
 
 /*
 import ProfilePage from ".components/ProfilePage";
@@ -57,7 +59,6 @@ function Application(){
   useEffect(() =>{
       if(user !== null){
         inUpOut = <button onClick={() => auth.signOut() }> Sign Out </button>
-        console.log('at inupout')
       } else if (location.pathname === '/SignIn'){
         inUpOut = <Link to="./SignUp"> Sign Up </Link>
 
@@ -68,7 +69,6 @@ function Application(){
   })
   let [allUsers,searchAllUsers] = useState([]);
   useEffect(() => {
-    getAllUsers().then(res => console.log(res));
     getAllUsers().then(res => searchAllUsers(res))
   },[])
 
@@ -111,7 +111,7 @@ function Application(){
             <Link to="/Home">Home</Link>
           </li>
           <li className="mx-5 w-15 float-left hover:bg-gray-700 hover:text-blue-100">
-            <Link to="/About">About</Link>
+            <Link to="/Resume">Resume</Link>
           </li>
           <li className="mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
             <Link to="/News">News</Link>
@@ -126,6 +126,8 @@ function Application(){
                 <div className="dropdown_contents   w-full bg-black ">
                   <Link to="./SimonSings" className="w-full alink py-1 inline hover:text-blue-100 hover:bg-grey-700"> Simon Sings </Link>
                   <Link to="./ZombieMath" className="alink py-1 inline hover:bg-grey-700"> Zombie Math </Link>
+                  <Link to="./ComeVisit" className="alink py-1 inline hover:bg-grey-700"> Come Visit </Link>
+
                 </div>
           </li>
 
@@ -138,17 +140,24 @@ function Application(){
 
       </div>
 
-      <div>
+      <div className="mt-0">
 
 
       <Switch>
 
-
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/ColorPlay">
+          <ColorPlay />
+        </Route>
         <Route path="/SimonSings" >
           <SimonSings />
         </Route>
 
-
+        <Route path="/ComeVisit">
+        <ComeVisit />
+        </Route>
         <Route path="/ProfilePage/" exact>
           {user?
 
@@ -159,18 +168,15 @@ function Application(){
         </Route>
 
         <Route path="/Home" exact>
-          {user? <SideBar /> : <div> </div>}
           <Home />
         </Route>
         <Route path="/News" exact>
-        {user? <SideBar /> : <div> </div>}
 
           <News />
         </Route>
-        <Route path="/About">
-        {user? <SideBar /> : <div> </div>}
+        <Route path="/Resume">
 
-          <About />
+          <Resume />
         </Route>
         <Route path="/ZombieMath">
           <ZombieMath />
@@ -186,10 +192,9 @@ function Application(){
           }
         </Route>
         <Route path="/SignUp" exact>
-          <SignUp />
+          <SignUp allUsers={allUsers} />
         </Route>
         <Route path="/Home" exact>
-        {user? <SideBar /> : <div> </div>}
 
           <Home />
         </Route>

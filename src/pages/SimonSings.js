@@ -52,12 +52,14 @@ useEffect(() => {
       togglePlaySongState(!playSongState)
     } else if(responseState){
       addGuess([]);
+    } else {
+
     }
   },[gamePlaying])
 
   const [answerState,toggleAnswerState] = useState(false);
 
-  const [progression,addToProgression] = useState([]);
+  const [progression,addToProgression] = useState([1,2,3,5,3,2,1,3,5,6,8,7,5,3,2]);
   const [playSong,togglePlaySong] = useState(false);
 
   const [currentNote,nextNote] = useState(0);
@@ -135,6 +137,8 @@ useEffect(() => {
           var audio = new Audio(fart);
           alert("Failure");
           audio.play();
+          addToProgression([]);
+
           toggleResponseState(!responseState);
           toggleGame(!gamePlaying);
           resetGame();
@@ -164,6 +168,15 @@ useEffect(() => {
       });
     }
   }
+  /*
+  useEffect(() => {
+    var time = setTimeOut()
+    const boxes = document.querySelectorAll('.soundBox').forEach((bo) => bo.classList.toggle("soundBoxMove"));
+  },[])
+  const addBox = () => {
+
+  }
+  */
 
 
 

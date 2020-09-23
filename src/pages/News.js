@@ -1,10 +1,10 @@
 import React, {useContext,useState, useEffect} from 'react';
 import NewsPost from '../components/NewsPost.js';
-import './home.css';
 import {generateNewsPosts,firestore} from  '../firebase.js'
 import {UserContext} from "../providers/UserProvider";
+import './news.css'
 
-const Home = () => {
+const News = () => {
   const user = useContext(UserContext);
   const[posts,checkPosts] = useState([]);
   const [potentialPost,editPotentialPost] = useState(" ");
@@ -73,13 +73,30 @@ const Home = () => {
     }
     useEffect(checkForPosts,[])
 
+    const revealSearchOptions = () => {
+
+      let list = document.querySelector('ul.searchList');
+      list.classList.toggle('seeMe');
+      console.log(list)
+    }
+    const [postNum, addPostNum] = useState(0)
+    let x = 0;
+
     return (
 
 
-      <div className="ml-16 relative container text-center inline-block bg-gray-100 rounded-sm bg-opacity-25 " >
-        <h1 className="text-center text-5xl mt-3 font-semibold"> News and Discussion Page</h1>
-        <div className="container news_post_container mx-auto md:w-10/12  opacity-75 box item-center ">
-          {posts.sort((a,b) => {return b.date_created-a.date_created}).map((post) => <NewsPost body={post.body} title={post.title} id={post.id} owner_id={post.owner_id} owner={post.owner} date_created={timeConverter(post.date_created.seconds)} />)}
+      <div className="ml-16 relative container text-center inline-block rounded-sm main  " >
+        <h1 className="text-center text-5xl mt-3  font-semibold "> News </h1>
+        {/*
+        <button type="button" onClick={() => revealSearchOptions()} > Search Button </button>
+        <ul className="searchList ">
+          <li>title-ascending </li><br />
+          <li>title-descending</li><br />
+        </ul>
+        */}
+
+        <div className="container news_post_container mx-auto w-12/12 md:w-12/12  opacity-75 box item-center ">
+          {posts.sort((a,b) => {return b.date_created-a.date_created}).map((post) => <NewsPost postNum={x+=1} body={post.body} title={post.title} id={post.id} owner_id={post.owner_id} owner={post.owner} date_created={timeConverter(post.date_created.seconds)} />)}
           <div className="submitPost container block bg-grey-600 rounded-lg">
             <div className="form block flex box-content w-half">
             <div className="center_block m-auto w-half">
@@ -115,4 +132,4 @@ const Home = () => {
   }
 
 
-export default Home;
+export default News;

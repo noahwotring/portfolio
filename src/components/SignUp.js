@@ -1,20 +1,26 @@
 import React, {useState} from 'react';
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import {auth, generateUserDocument} from '../firebase.js';
-const SignUp = () => {
+const SignUp = (props) => {
 
+  const allUsers = props.allUsers.map((x) => x.toLowerCase());
   const [email, setEmail] = useState("");
   const [password,setPassword ] = useState("");
   const [displayName, setDisplayName] = useState("");
-  const [userImage,setUserImage] = useState("");
+  const [photoURL,setUserImage] = useState("");
   const [error,setError] = useState(null);
 
   const createUserWithEmailAndPasswordHandler = async(event, email, password) => {
     event.preventDefault();
+    if(allUsers.includes(displayName.toLowerCase())){
+      setError("Username already taken!")
+    }
+    else {
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email,password);
-      console.log("attempted");
-      generateUserDocument(user,{displayName,email,password});
+
+
+      generateUserDocument(user,{displayName,email,password,photoURL});
     }
     catch(error){
       setError('Error signing up with email and password');
@@ -23,6 +29,7 @@ const SignUp = () => {
     setPassword("");
     setDisplayName("");
     setUserImage("");
+  }
   };
   const onChangeHandler = (event) => {
     const {name, value} = event.currentTarget;
@@ -33,7 +40,7 @@ const SignUp = () => {
     } else if(name === "displayName") {
       setDisplayName(value);
     }
-    else if (name === "userImage"){
+    else if (name === "photoURL"){
       setUserImage(value)
     }
   };
@@ -73,16 +80,16 @@ const SignUp = () => {
           onChange = {(event) => onChangeHandler(event)}
         />
         <br />
-        <label htmlFor="userImage">
-          Link to User Picture: {" "}
+        <label htmlFor="photoURL">
+          Link to Profile Picture: {" "}
         </label>
         <input
-          name="userImage"
-          type=""
-          id="userImage"
+          name="photoURL"
+          type="photoURL"
+          id="photoURL"
           className="my-1 p-1 w-full"
-          value={userImage}
-          placeholder="User Image"
+          value={photoURL}
+          placeholder="Image URL"
           onChange = {(event) => onChangeHandler(event)}
         />
         <br />
@@ -96,7 +103,7 @@ const SignUp = () => {
           id="userPassword"
           value={password}
           onChange={(event) => onChangeHandler(event)}
-          placeholder="E.g: derpdede123"
+          placeholder="E.g: johndoe123"
         />
         <button className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {createUserWithEmailAndPasswordHandler(event, email, password)}} >
           Sign Up

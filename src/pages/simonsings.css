@@ -43,6 +43,7 @@ div.soundBox {
 
 
 }
+
 .soundBox:hover {
   opacity: .8;
   box-shadow: -2px 2px white, -2px 2px white, -1px 1px 3px white;
