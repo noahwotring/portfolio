@@ -8,7 +8,7 @@ import {BrowserRouter, Route, Switch, Link,Redirect, useLocation,history} from '
 
 //fuck
 
-import {auth,generateNewsPosts,updateUserProfilePicture} from 'C:\\Users\\Noah Wotring\\Desktop\\Code\\portfolio\\src\\firebase.js';
+import {auth,generateNewsPosts,updateUserProfilePicture} from '../firebase.js';
 
 const ChangePictureWindow = ({user}) => {
   const {uid} = user;
