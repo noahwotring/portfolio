@@ -59,7 +59,7 @@ useEffect(() => {
 
   const [answerState,toggleAnswerState] = useState(false);
 
-  const [progression,addToProgression] = useState([1,2,3,5,3,2,1,3,5,6,8,7,5,3,2]);
+  const [progression,addToProgression] = useState([]);
   const [playSong,togglePlaySong] = useState(false);
 
   const [currentNote,nextNote] = useState(0);

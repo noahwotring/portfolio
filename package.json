@@ -23,7 +23,8 @@
     "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.generated.css",
     "prestart": "npm run build:tailwind",
     "prebuild": "npm run build:tailwind",
-    "start": "react-scripts start",
+    "start": "node server/server.js",
+    "startrun": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
