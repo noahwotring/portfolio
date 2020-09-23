@@ -1,19 +1,26 @@
 import React, {useState} from 'react';
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import {auth, generateUserDocument} from '../firebase.js';
-const SignUp = () => {
+const SignUp = (props) => {
 
+  const allUsers = props.allUsers.map((x) => x.toLowerCase());
   const [email, setEmail] = useState("");
   const [password,setPassword ] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [photoURL,setUserImage] = useState("");
   const [error,setError] = useState(null);
 
   const createUserWithEmailAndPasswordHandler = async(event, email, password) => {
     event.preventDefault();
+    if(allUsers.includes(displayName.toLowerCase())){
+      setError("Username already taken!")
+    }
+    else {
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email,password);
-      console.log("attempted");
-      generateUserDocument(user,{displayName,email,password});
+
+
+      generateUserDocument(user,{displayName,email,password,photoURL});
     }
     catch(error){
       setError('Error signing up with email and password');
@@ -21,6 +28,8 @@ const SignUp = () => {
     setEmail("");
     setPassword("");
     setDisplayName("");
+    setUserImage("");
+  }
   };
   const onChangeHandler = (event) => {
     const {name, value} = event.currentTarget;
@@ -31,10 +40,13 @@ const SignUp = () => {
     } else if(name === "displayName") {
       setDisplayName(value);
     }
+    else if (name === "photoURL"){
+      setUserImage(value)
+    }
   };
   return(
-    <div className="mt-8 my-auto opacity-150 w-full absolute">
-    <h1 className="text-3x1 mb-2 text-center font-bold"> Sign Up </h1>
+    <div className="mt-8 my-auto opacity-150 w-full absolute  text-center" >
+      <h1 className="text-3x1 mb-4 text-center font-bold"> Sign Up </h1>>
     <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
     {error !== null && (
       <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
@@ -68,6 +80,19 @@ const SignUp = () => {
           onChange = {(event) => onChangeHandler(event)}
         />
         <br />
+        <label htmlFor="photoURL">
+          Link to Profile Picture: {" "}
+        </label>
+        <input
+          name="photoURL"
+          type="photoURL"
+          id="photoURL"
+          className="my-1 p-1 w-full"
+          value={photoURL}
+          placeholder="Image URL"
+          onChange = {(event) => onChangeHandler(event)}
+        />
+        <br />
         <label className="block" htmlFor="userPassword">
           Password:{" "}
         </label>
@@ -78,15 +103,13 @@ const SignUp = () => {
           id="userPassword"
           value={password}
           onChange={(event) => onChangeHandler(event)}
-          placeholder="E.g: derpdede123"
+          placeholder="E.g: johndoe123"
         />
         <button className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {createUserWithEmailAndPasswordHandler(event, email, password)}} >
           Sign Up
         </button>
       </form>
-      <button className="bg-red-500 hover:bg-red-200 w-full py-2 text-white">
-        Sign In With Google
-      </button>
+
       <p className="text-center my-3">
         Already have an account?{" "}
         <Link to="/signin" className="text-blue-500 hover:text-blue-600">

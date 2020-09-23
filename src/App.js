@@ -3,12 +3,15 @@ import Application from "./Application";
 import history from './utils/history.js';
 import UserProvider, {UserContext} from "./providers/UserProvider.jsx";
 import './App.css'
+import "./pages/ComeVisit.js";
 function App(){
 const user = useContext(UserContext);
 
   return(
-    <UserProvider className="App styleContainer">
-      <Application user={user} />
+    <UserProvider>
+      <div  className="App styleContainer">
+       <Application user={user} />
+      </div>
     </UserProvider>
 
 

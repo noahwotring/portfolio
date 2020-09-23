@@ -39,8 +39,8 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="mt-8 my-auto opacity-150 w-full absolute " >
-      <h1 className="text-3x1 mb-2 text-center font-bold"> Sign In </h1>
+    <div className="mt-8 my-auto opacity-150 w-full absolute  text-center" >
+      <h1 className="text-3x1 mb-4 text-center font-bold"> Sign In </h1>
       <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 py-8 px-4 md:px-8">
         {error !== null && <div className="py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
         <form className="">
@@ -75,12 +75,7 @@ const SignIn = () => {
             Sign In
           </button>
         </form>
-        <p className="text-center my-3">or </p>
-        <button
-          onClick={() => signInWithGoogle}
-          className="bg-red-500 hover:bg-red-600 w-full py-2 text-whitie">
-          Sign in with Google
-        </button>
+
         <p className="text-center my-3">
           Don't have an account?{" "}
           <Link to="/SignUp" className="text-blue-500 hover:text-blue-600">

@@ -2,60 +2,28 @@ import React, {useContext, useEffect, useState,useRouteMatch} from 'react';
 import {BrowserRouter, Route, Switch, Link,Redirect, useLocation,history} from 'react-router-dom';
 import SignIn from "./components/SignIn";
 import ProfilePage from "./pages/ProfilePage";
-import ZombieMath from "./pages/ZombieMath"
+import SideBar from "./components/Sidebar.js";
 import PasswordReset from "./components/PasswordReset";
+import ColorPlay from "./pages/ColorPlay";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Resume from "./pages/Resume.js";
 import SignUp from "./components/SignUp";
+import ZombieMath from "./pages/ZombieMath";
 import News from "./pages/News";
 import {UserContext} from './providers/UserProvider.jsx';
-import logo from './img/logo.png';
-import white from './img/white.jpg';
+import logo from './img/fancyN.jpg';
 import RepChoose from './components/RepChoose.js';
 import {auth,getAllUsers} from './firebase.js';
 import './utils/navbar/navbar.css';
-import PublicPage from "./pages/PublicPage";
+import SimonSings from "./pages/SimonSings";
+import ComeVisit from "./pages/ComeVisit";
 
 /*
 import ProfilePage from ".components/ProfilePage";
 import PasswordReset from "./components/PasswordReset";
 */
 
-const SideBar = () => {
-  let user = useContext(UserContext);
 
-
-
-  return (<div className="sidebar  w-2/12 absolute   border container text-center  inline-block ">
-      <div className="sidebar_photo_container items-start w-half text-center mt-10">
-        {user?  <div
-                  style={{
-                      background:
-                        `url('${user.photoURL}') no-repeat center center`,
-                      backgroundSize: "cover",
-                      height: "100px",
-                      width: "100px"
-                    }}
-                  className="border border-blue-300 w-3/4 h-3/4 m-auto "
-                />
-                :
-                <img src={logo} alt="logo" className="userPhoto  w-3/4 h-3/4 m-auto  hover:text-white-300 opacity-25" />
-          }
-
-        {user?
-          <h5> Welcome, {user.displayName}  </h5>
-          :
-          <h5> Welcome, Please <Link to="./SignIn"> <span className="hover:text-blue-200">Sign In </span> </Link> </h5>
-        }
-      </div>
-      <ul>
-       <li onClick={()=>{console.log(user.photoURL)}}>Edit Username </li>
-       <li>Edit Profile Picture </li>
-       <li>Edit Username </li>
-       <li>Edit Profile Picture </li>
-     </ul>
-   </div>)
-}
 function Application(){
   const user = useContext(UserContext);
 
@@ -91,7 +59,6 @@ function Application(){
   useEffect(() =>{
       if(user !== null){
         inUpOut = <button onClick={() => auth.signOut() }> Sign Out </button>
-        console.log('at inupout')
       } else if (location.pathname === '/SignIn'){
         inUpOut = <Link to="./SignUp"> Sign Up </Link>
 
@@ -102,7 +69,6 @@ function Application(){
   })
   let [allUsers,searchAllUsers] = useState([]);
   useEffect(() => {
-    getAllUsers().then(res => console.log(res));
     getAllUsers().then(res => searchAllUsers(res))
   },[])
 
@@ -145,7 +111,7 @@ function Application(){
             <Link to="/Home">Home</Link>
           </li>
           <li className="mx-5 w-15 float-left hover:bg-gray-700 hover:text-blue-100">
-            <Link to="/About">About</Link>
+            <Link to="/Resume">Resume</Link>
           </li>
           <li className="mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
             <Link to="/News">News</Link>
@@ -155,35 +121,43 @@ function Application(){
             <Link to="/ZombieMath">Zombie Math</Link>
           </li> */}
 
+          <li className="dropdown  mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
+          <button className="drop_down_button p-16px mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100  border-none">Projects </button>
+                <div className="dropdown_contents   w-full bg-black ">
+                  <Link to="./SimonSings" className="w-full alink py-1 inline hover:text-blue-100 hover:bg-grey-700"> Simon Sings </Link>
+                  <Link to="./ZombieMath" className="alink py-1 inline hover:bg-grey-700"> Zombie Math </Link>
+                  <Link to="./ComeVisit" className="alink py-1 inline hover:bg-grey-700"> Come Visit </Link>
 
-            {allUsers.map((dauser) => <li className="mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100"> <Link to={`/PublicPage/${dauser}`}> {dauser} </Link> </li>)}
+                </div>
+          </li>
 
         </ul>
         <div className="inOut float-right mx-5  hover:bg-gray-500 hover:text-blue-100" >
         {user?  <button onClick={() => auth.signOut().then(window.location = "/SignIn") }> Sign Out </button>
               :
                 <Link to="/SignIn" exact> Sign In </Link> }
-
         </div>
 
       </div>
 
-      <div>
+      <div className="mt-0">
 
 
       <Switch>
 
-
-
-
-        <Route path="/PublicPage/:displayName" >
-          <PublicPage />
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/ColorPlay">
+          <ColorPlay />
+        </Route>
+        <Route path="/SimonSings" >
+          <SimonSings />
         </Route>
 
-
-
-
-
+        <Route path="/ComeVisit">
+        <ComeVisit />
+        </Route>
         <Route path="/ProfilePage/" exact>
           {user?
 
@@ -194,18 +168,18 @@ function Application(){
         </Route>
 
         <Route path="/Home" exact>
-          {user? <SideBar /> : <div> </div>}
           <Home />
         </Route>
         <Route path="/News" exact>
-        {user? <SideBar /> : <div> </div>}
 
           <News />
         </Route>
-        <Route path="/About">
-        {user? <SideBar /> : <div> </div>}
+        <Route path="/Resume">
 
-          <About />
+          <Resume />
+        </Route>
+        <Route path="/ZombieMath">
+          <ZombieMath />
         </Route>
         <Route path="/PasswordReset" >
           <PasswordReset />
@@ -218,18 +192,12 @@ function Application(){
           }
         </Route>
         <Route path="/SignUp" exact>
-          <SignUp />
+          <SignUp allUsers={allUsers} />
         </Route>
         <Route path="/Home" exact>
-        {user? <SideBar /> : <div> </div>}
 
           <Home />
         </Route>
-        <Route path="/ZombieMath" exact>
-          <ZombieMath />
-        </Route>
-
-
 
 
       </Switch>

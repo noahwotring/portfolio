@@ -25,19 +25,22 @@ export const session = firebase.auth.Auth.Persistence.SESSION;
 export const local  = firebase.auth.Auth.Persistence.LOCAL;
 
 export const generateUserDocument = async (user,additionalData) => {
+    const userObj = {
+      ...additionalData
+    }
     if(!user) return;
     const userRef = firestore.doc(`users/${user.uid}`);
     const snapshot = await userRef.get();
     if(!snapshot.exists) {
-      const {email,displayName,photoURL} = user;
+      const {email,password,displayName,photoURL} = userObj;
       try {
+        console.log(additionalData.displayName);
+
         await userRef.set({
-          user,
-          email,
-          photoURL,
+
+
           ...additionalData
         });
-        console.log(displayName);
       } catch (error) {
         console.error("Error creating user document", error);
       }
@@ -47,7 +50,9 @@ export const generateUserDocument = async (user,additionalData) => {
   export const getUserDocument = async uid => {
     if(!uid) return null;
     try {
+
       const userDocument = await firestore.doc(`users/${uid}`).get();
+      console.log(userDocument.data())
       return {
         uid,
         ...userDocument.data()
@@ -95,6 +100,7 @@ export const generateUserDocument = async (user,additionalData) => {
 
 
   }
+  // generating posts
 
   export const generateNewsPosts = async (justOwned = false) => {
     let collectedPosts = [];
@@ -108,7 +114,7 @@ export const generateUserDocument = async (user,additionalData) => {
                               body: doc.data().body,
                               owner_id: doc.data().owner_id,
                               owner : doc.data().owner,
-                              date: doc.data().date_created,
+                              date_created: doc.data().date_created,
                               id: doc.id
                             })
       });
@@ -133,11 +139,18 @@ export const generateUserDocument = async (user,additionalData) => {
       console.log(error);
     }
   }
-
+  export const updateUserInterests = async (uid,interest) => {
+    if(!uid) return null;
+    const userRef = await firestore.doc(`users/${uid}`).update({interests:[...interest]})
+  }
   export const updateUserProfilePicture = async (uid,picURL) => {
     if(!uid) return null;
-    console.log("successfull");
+    console.log(uid);
+    try {
     const userRef = await firestore.doc(`users/${uid}`).update({photoURL:picURL});
+  }catch(e){
+    console.log(e)
+  }
   }
   export const updateUserRep = async (uid,rep) => {
     if(!uid) return null;

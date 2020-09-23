@@ -31,7 +31,7 @@
 
 .navbar {
   height: 70px;
-  overflow: hidden
+
 }
 
 .userPhoto{
@@ -44,4 +44,28 @@
 
 .blurred {
   filter: blur(8px)
+}
+.dropdown {
+  position: relative;
+  display: inline-block
+}
+.dropdown:hover .dropdown_contents{
+  display:block
+}
+.dropdown:hover .drop_down_button {display: block}
+.dropdown_contents .alink {
+  color: white;
+  text-decoration: none;
+  display: block;
+
+
+}
+.dropdown_contents .alink:hover {
+  background-color: #a0aec0;
+
+}
+.dropdown_contents{
+  display: none;
+  position: absolute;
+  z-index: 1
 }
