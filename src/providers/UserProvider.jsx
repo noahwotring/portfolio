@@ -1,6 +1,6 @@
 import React, {Component, createContext} from 'react';
-import {auth} from 'C:\\Users\\Noah Wotring\\Desktop\\Code\\portfolio\\src\\firebase.js';
-import {generateUserDocument} from '../firebase.js';
+import {auth} from '../firebase.js';
+import {generateUserDocument,auth} from '../firebase.js';
 export const UserContext = createContext({user: null});
 
 class UserProvider extends Component {
