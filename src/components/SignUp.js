@@ -63,7 +63,7 @@ const SignUp = (props) => {
           value={displayName}
           className="my-1 p-1 w-full"
           id="displayName"
-          placeholder="E.g: daCoolestDudeInDaWest"
+          placeholder="E.g: Your Username"
           onChange = {(event) => onChangeHandler(event)}
         />
         <br />

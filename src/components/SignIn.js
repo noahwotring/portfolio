@@ -66,7 +66,7 @@ const SignIn = () => {
             type="password"
             name="userPassword"
             value={password}
-            placeholder="E.g: derpdede123"
+            placeholder="E.g: your password here"
             onChange={(event) => onChangeHandler(event)}
             id="userPassword"
           />

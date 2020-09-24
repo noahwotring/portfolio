@@ -1,7 +1,7 @@
 import React, {useContext,useState,useEffect} from "react";
 import {UserContext} from "../providers/UserProvider";
 import logo from '../img/logo.png';
-import './profilepage.css';
+import './css/profilepage.css';
 import NewsPost from '../components/NewsPost.js';
 //fuck
 

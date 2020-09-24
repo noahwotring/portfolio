@@ -4,7 +4,7 @@ import viewhawaii from "../img/viewhawaii.jpg";
 import viewhotel from "../img/viewhotel.jpg";
 import viewmountain from "../img/viewmountain.jpg";
 import viewsunset from "../img/viewsunset.jpg";
-import "./comevisit.css";
+import "./css/comevisit.css";
 
 const ComeVisit = () => {
   const [openActive,toggleOpenActive] = useState(false);

@@ -2,7 +2,7 @@ import React, {useContext,useState,useEffect} from "react";
 import {useParams} from 'react-router-dom';
 import {UserContext} from "../providers/UserProvider";
 import logo from '../img/logo.png';
-import './profilepage.css';
+import './css/profilepage.css';
 import NewsPost from '../components/NewsPost.js';
 import {BrowserRouter, Route, Switch, Link,Redirect, useLocation,history} from 'react-router-dom';
 
@@ -27,7 +27,7 @@ const ChangePictureWindow = ({user}) => {
   }
   return(
 
-    <div className="flex-box  border changePic text-center mx-0 changePicOn bg-gray-100">
+    <div className="flex-box   changePic text-center mx-0 changePicOn bg-gray-100 " id="changePic">
       <h3>Select A New Profile Picture</h3>
       <div
         style={{
@@ -39,7 +39,7 @@ const ChangePictureWindow = ({user}) => {
         className="border border-black mx-auto"
       />
 
-      <form className="border ">
+      <form className=" ">
         <label htmlFor="profilepicturelink inline-block"> Link:{" "} </label>
 
         <input
@@ -75,7 +75,15 @@ const ProfilePage = (props) => {
   let {userDisplayName} = useParams();
   const [changeProfilePictureWindow,toggleProfilePicture] = useState(false);
 
+  const freeClickHandler = (e) => {
+    if(changeProfilePictureWindow){
+      console.log(e.currentTarget.id);
+      if(e.currentTarget.id != "changePic"){
+        toggleProfilePicture(!changeProfilePictureWindow)
 
+      }
+    }
+  }
   const {photoURL, displayName, email, password, interests, aboutMe} = user;
   const checkIfUser = () => {
     if(user){
@@ -96,11 +104,11 @@ const ProfilePage = (props) => {
 
    useEffect(checkMyPosts,[])
   return(
-    <div className={`  relative container  profile `}>
+    <div className={`  relative container  profile `} >
     {changeProfilePictureWindow ? <ChangePictureWindow user={user} /> : " "}
 
 
-    <div className={`container  w-full py-8 border  ${changeProfilePictureWindow? "blurred" : ""} `}>
+    <div className={`container  w-full py-8   ${changeProfilePictureWindow? "blurred" : ""} `}  onClick={freeClickHandler}>
       <div className="flex flex-row">
         <div className="flex-col  ml-8 bg-white ">
           <div
@@ -114,14 +122,17 @@ const ProfilePage = (props) => {
           />
 
           <p className="ml-4 text-blue-500 font-size-xs hover:text-blue-600 cursor-pointer" onClick={() => (toggleProfilePicture(!changeProfilePictureWindow))}>Change Profile Picture </p>
+          {/*}
           <div className="flexbox block  bg-opacity-25 ml-4 mr-12">
 
             <br />
+
             <h3 className="block my-0 border-b-2 b-2-0 w-full h-8"> Interests: </h3>
             <ul className="block float-left ">
                {user.interests? user.interests.map((interest) => <li> {interest} </li>) : <h3>Add Your Interests!</h3>} <br />
 
               </ul>
+
            </div>
            <div className=" block  bg-opacity-25 ml-4 mr-12">
 
@@ -133,15 +144,21 @@ const ProfilePage = (props) => {
 
                </ul>
             </div>
+                */}
+
 
 
         </div>
-        <div className="flex flex-col border w-full ml-32 float-left">
+        <div className="flex flex-col  w-full ml-32 float-left">
           <h1 className="head"> {user.displayName} </h1>
           <h3> {user.email} </h3>
           <br />
+
           <div className="about w-3/4">
+          <h2 className="underline"> Profile Page Currently in Development </h2>
+          <h3> About Me </h3>
             <p>
+
               {user.aboutMe}
             </p>
           </div>

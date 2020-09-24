@@ -2,7 +2,7 @@ import React, {useContext,useState, useEffect} from 'react';
 import NewsPost from '../components/NewsPost.js';
 import {generateNewsPosts,firestore} from  '../firebase.js'
 import {UserContext} from "../providers/UserProvider";
-import './news.css'
+import './css/news.css'
 
 const News = () => {
   const user = useContext(UserContext);
@@ -85,8 +85,8 @@ const News = () => {
     return (
 
 
-      <div className="ml-16 relative container text-center inline-block rounded-sm main  " >
-        <h1 className="text-center text-5xl mt-3  font-semibold "> News </h1>
+      <div className=" relative pt-8 text-center block rounded-sm main  " >
+        <h1 className="text-center text-6xl mt-3 mb-8  font-semibold newsH1"> What's the <span className="italic"> Gossip ?  </span></h1>
         {/*
         <button type="button" onClick={() => revealSearchOptions()} > Search Button </button>
         <ul className="searchList ">
@@ -95,7 +95,7 @@ const News = () => {
         </ul>
         */}
 
-        <div className="container news_post_container mx-auto w-12/12 md:w-12/12  opacity-75 box item-center ">
+        <div className=" news_post_container mx-auto w-12/12 md:w-12/12 mt-8 opacity-75 box item-center ">
           {posts.sort((a,b) => {return b.date_created-a.date_created}).map((post) => <NewsPost postNum={x+=1} body={post.body} title={post.title} id={post.id} owner_id={post.owner_id} owner={post.owner} date_created={timeConverter(post.date_created.seconds)} />)}
           <div className="submitPost container block bg-grey-600 rounded-lg">
             <div className="form block flex box-content w-half">

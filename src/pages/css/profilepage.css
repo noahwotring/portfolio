@@ -1,0 +1,37 @@
+.profile {
+      margin: 0px auto;
+
+}
+.col-1 {
+  width: 100%
+}
+h1.head {
+  color: black;
+  font-size: 40px;
+  text-align:left;
+}
+
+.blurred {
+  filter:blur(4px)
+}
+
+.ChangePictureWindow {
+  width: 300px
+}
+input {
+  border: solid 1px rgb(0,0,0,.2)
+}
+.changePicOn {
+  position: absolute;
+  left: 20%;
+  min-width: 500px;
+  min-height: 300px;
+  top: 10%;
+  z-index: 1000;
+  background: white;
+}
+.changeButton {
+  position: relative;
+  margin-left: 9px;
+  border-radius: 5%
+}

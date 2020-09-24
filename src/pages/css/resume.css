@@ -1,0 +1,151 @@
+.resumeBox {
+
+    /* background: linear-gradient(to left, blue, black); */
+    background: #222831 no-repeat center center fixed;
+    color: #EFBB35;
+    background-size: contain;
+    box-sizing: content-box;
+    height: full;
+    padding-top: 8px;
+    margin-top: -7px;
+    text-align:justify
+    /* background: linear-gradient(to right, rgb(255,255,255,.1), rgb(100,100,100,.5) 95%, rgb(100,100,100,.1) 100%);
+    */
+
+
+}
+ .resumeBody{
+   border-left: 2px solid white;
+   border-right: 2px solid white
+ }
+.h1resume{
+  color: #EFBB35;
+  font-weight: lighter;
+  text-decoration: underline;
+
+}
+
+.objectiveBox {
+  display: block;
+
+  border-top: 4px solid   #EFBB35;
+  border-bottom:  4px solid  #EFBB35;
+  box-sizing: border-box;
+  width: 50%;
+  color: #017A8E;
+
+
+
+}
+h1.skills {
+  color: #EFBB35;
+  font-weight: lighter;
+  margin-left: 70px
+}
+.skills {
+  box-sizing: border-box;
+  width: 75%;
+  text-align: left;
+  margin-bottom: 48px
+
+}
+.skillsList{
+  width: 50%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 120px;
+  height: auto;
+  transition: overflow 2s
+
+
+}
+
+ .skillsList li{
+  display: inline-block;
+  width: 50%;
+  height: 30px;
+  text-align: center;
+
+
+}
+.skillsList.closed {
+  max-height: 0px;
+  overflow: hidden;
+  transition: overflow .1s
+}
+.caret.closed {
+  transform: rotate(0);
+  transition: transform .1s
+}
+.caret {
+  transform: rotate(45deg);
+  transition: transform .1s;
+
+
+}
+
+.experienceBox {
+  background-color: rgb(255,255,255,.04);
+  padding-bottom: 5px;
+  border-top: 2px solid  #EFBB35;
+  box-sizing: border-box;
+  width: 75%;
+  text-align: left;
+
+}
+h1.experience {
+  color: #EFBB35;
+  font-weight: lighter;
+  margin-top: 15px;
+  margin-left: 70px
+}
+.eachExperiencebox {
+  border-top: 1px solid  #EFBB35;
+  margin-top: 15px;
+  padding-top: 10px;
+  margin-bottom: 30px;
+
+
+}
+.date {
+  color: #017A8E;
+  font-size: 12px;
+  display: block;
+}
+.titlecompany > h3:nth-child(2) {
+color: #017A8E;
+
+}
+.jobdo {
+  color: white;
+  margin-top: 5px;
+  font-size: 12px;
+  margin-left: 3px
+}
+.h1Education {
+  color: white;
+  font-weight: lighter;
+  margin-top: 15px;
+  margin-left: 75px
+}
+.educationBox {
+  text-align: left;
+  margin-top: 20px;
+  background-color: rgb(255,255,255,.01);
+  padding-bottom: 5px;
+  border-top: 2px solid  #EFBB35;
+  box-sizing: border-box;
+  width: 75%;
+
+}
+
+.up {
+  position: fixed;
+  left: 69px;
+  top: 30px;
+
+}
+
+button:hover {
+  color: white;
+}

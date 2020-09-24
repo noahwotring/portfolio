@@ -1,5 +1,5 @@
 import React, {useState,useContext,useEffect} from 'react';
-import './zombie_math.css';
+import './css/zombie_math.css';
 import {UserContext} from "../providers/UserProvider";
 import {generateScore} from '../firebase.js';
 

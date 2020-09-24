@@ -24,7 +24,7 @@ const NewsPost = ({title,body,owner_id,owner,date_created,id,postNum}) => {
     }} className={`newbox        ${ length > 327 && !expanded? "shrunk" : " "}`}>
 
 
-    <div className={`newpost  mx-4 my-2 mb-4 hover:border text-center mx-auto text-black  relative rounded-md    ${expanded? "max-h-full " : "overflow-hidden "} `}  onClick={(event) => expand(!expanded)}>
+    <div className={`newpost  my-2 mb-4 hover:border text-center mx-auto   relative rounded-md    ${expanded? "max-h-full " : "overflow-hidden "} `}  onClick={(event) => expand(!expanded)}>
       <div className="bg-black text-white">
       <div className="inline-block left-0  absolute">
         <div className="uid inline "><span className="float-left mt-2 text-xs"> Post By: {owner}</span> </div>
@@ -36,8 +36,8 @@ const NewsPost = ({title,body,owner_id,owner,date_created,id,postNum}) => {
 
 
       <div className="inline-block ">
-        <h2 className="text-center mt-6 mb-2"> {title}</h2>
-        <p className="text-center mx-8 mb-2  "> {body} </p>
+        <h2 className="text-center mt-4 mb-2 text-3xl"> {title}</h2>
+        <p className="text-center mx-8 mb-2 tex  "> {body} </p>
       </div>
 
 

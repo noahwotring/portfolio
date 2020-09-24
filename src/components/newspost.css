@@ -4,12 +4,15 @@
   margin-top: 3px;
   margin-bottom: 3px;
   padding-bottom: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   overflow-y: hidden;
-  max-height: 130px;
-  border-bottom: 1px solid black
-
+  max-height: 140px;
+  border-bottom: 1px solid transparent;
+  color: white;
+  size: 24px
 }
 
 .uid {

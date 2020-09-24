@@ -5,7 +5,7 @@ import NewsPost from '../components/NewsPost.js';
 import UserContext from '../providers/UserProvider';
 import {BrowserRouter, Route, Switch, Link,Redirect, useLocation,history} from 'react-router-dom';
 import {generateNewsPosts,generateNonUserPage} from '../firebase.js';
-import './profilepage.css';
+import './css/profilepage.css';
 
 const PublicPage = (props) => {
   let {displayName} = useParams();

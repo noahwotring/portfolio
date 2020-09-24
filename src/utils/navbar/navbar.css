@@ -50,7 +50,8 @@
   display: inline-block
 }
 .dropdown:hover .dropdown_contents{
-  display:block
+  display:block;
+
 }
 .dropdown:hover .drop_down_button {display: block}
 .dropdown_contents .alink {
@@ -61,11 +62,12 @@
 
 }
 .dropdown_contents .alink:hover {
-  background-color: #a0aec0;
+  background-color: rgb(255,255,255,.2);
+
 
 }
 .dropdown_contents{
   display: none;
   position: absolute;
-  z-index: 1
+  z-index: 1;
 }

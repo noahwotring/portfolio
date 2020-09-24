@@ -6,13 +6,12 @@ import SideBar from "./components/Sidebar.js";
 import PasswordReset from "./components/PasswordReset";
 import ColorPlay from "./pages/ColorPlay";
 import Home from "./pages/Home";
-import Resume from "./pages/Resume.js";
+import Resume,{Experience,Skills} from "./pages/Resume.js";
 import SignUp from "./components/SignUp";
 import ZombieMath from "./pages/ZombieMath";
 import News from "./pages/News";
 import {UserContext} from './providers/UserProvider.jsx';
 import logo from './img/fancyN.jpg';
-import RepChoose from './components/RepChoose.js';
 import {auth,getAllUsers} from './firebase.js';
 import './utils/navbar/navbar.css';
 import SimonSings from "./pages/SimonSings";
@@ -81,7 +80,7 @@ function Application(){
 
       <div>
 
-      <div className=" navbar mx-auto bg-black text-white w-full inline-block shadow-md  font-Actor text-Actor">
+      <div className=" navbar mx-auto bg-black text-white w-full inline-block shadow-md first font-Actor text-Actor">
         <div className="signinBox mr-5 float-left overflow-hidden">
            {!user?
           <Link to="/SignIn">
@@ -113,20 +112,25 @@ function Application(){
           <li className="mx-5 w-15 float-left hover:bg-gray-700 hover:text-blue-100">
             <Link to="/Resume">Resume</Link>
           </li>
-          <li className="mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
-            <Link to="/News">News</Link>
-          </li>
           {/*}
+          <li className="mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
+            <Link to="/News">Gossip</Link>
+          </li>
+
           <li className="mx-5 w-15 hover:bg-gray-700  float-left hover:text-blue-100">
             <Link to="/ZombieMath">Zombie Math</Link>
           </li> */}
 
           <li className="dropdown  mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
-          <button className="drop_down_button p-16px mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100  border-none">Projects </button>
+          <button className="drop_down_button p-16px mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100   border-none">Projects </button>
                 <div className="dropdown_contents   w-full bg-black ">
+                  <Link to="./ComeVisit" className="alink py-1 inline hover:bg-grey-700"> Come Visit </Link>
+                  <Link to="./ColorPlay" className="alink py-1 inline hover:bg-grey-700"> Color Play </Link>
+                  <Link to="./News" className="alink py-1 inline hover:bg-grey-700"> Gossip </Link>
                   <Link to="./SimonSings" className="w-full alink py-1 inline hover:text-blue-100 hover:bg-grey-700"> Simon Sings </Link>
                   <Link to="./ZombieMath" className="alink py-1 inline hover:bg-grey-700"> Zombie Math </Link>
-                  <Link to="./ComeVisit" className="alink py-1 inline hover:bg-grey-700"> Come Visit </Link>
+
+
 
                 </div>
           </li>

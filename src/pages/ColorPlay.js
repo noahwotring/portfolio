@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './colorplay.css'
+import './css/colorplay.css'
 const ColorPlay = () => {
   const inputs = document.querySelectorAll('.controls input');
   const [b,changeB] = useState(0);

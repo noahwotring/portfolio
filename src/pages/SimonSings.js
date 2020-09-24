@@ -1,5 +1,5 @@
 import React, {useState,useEffect,setState} from 'react';
-import './simonsings.css';
+import './css/simonsings.css';
 import c4 from "../audio/c4.wav";
 import d4 from "../audio/d4.wav";
 import e4 from "../audio/e4.wav";
@@ -203,7 +203,7 @@ useEffect(() => {
   return (
     <div className="container relative mx-auto">
       <div className="text-center block my-8 mx-auto contents-center border w-1/2 startContainer">
-        <h1 className="  "> Simon Sings </h1>
+        <h1 className=" simonsingsH1 "> Simon Sings </h1>
         <button className={`click_button border float-right hover:bg-red-700 text-white font-bold h-32 w-32  rounded-full  shadow-2xl ${gamePlaying? "bg-red-800" : "  bg-green-800 "}`} onClick={() => toggleGame(!gamePlaying)}> {gamePlaying? "End Game" : "Start Game"} </button>
         <p className="mt-0 ml-1/2"> Round: {round}</p>
 
