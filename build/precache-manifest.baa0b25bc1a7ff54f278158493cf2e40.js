@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e73f227d0ddfae1ad5489c568f0bb5ee",
+    "revision": "c167a5a0a06b98a90b9e3981751bb224",
     "url": "/index.html"
   },
   {
-    "revision": "abb0e90bc439894557ef",
-    "url": "/static/css/main.37604972.chunk.css"
+    "revision": "5cc40c8157ebf3a88849",
+    "url": "/static/css/main.6f8037c3.chunk.css"
   },
   {
-    "revision": "64304b7e67686df63f5f",
-    "url": "/static/js/2.6e3bcda9.chunk.js"
+    "revision": "5240bf114482c06910e0",
+    "url": "/static/js/2.a77aeac1.chunk.js"
   },
   {
     "revision": "0135287500bd9d64203d07b4f33f971f",
-    "url": "/static/js/2.6e3bcda9.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.a77aeac1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "abb0e90bc439894557ef",
-    "url": "/static/js/main.78690819.chunk.js"
+    "revision": "5cc40c8157ebf3a88849",
+    "url": "/static/js/main.e7b0b3e7.chunk.js"
   },
   {
     "revision": "73635f645c271e35ff15",
@@ -76,24 +76,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/g4.6b79a5b9.wav"
   },
   {
+    "revision": "752ff16f851aa899ce0351e0ef5e0d79",
+    "url": "/static/media/gossip.752ff16f.png"
+  },
+  {
     "revision": "bbb694b3f99cb02898ee4e9d90f97fc3",
     "url": "/static/media/logo.bbb694b3.png"
   },
   {
-    "revision": "fa1ba7222a917e67d15a21b6f8affd2a",
-    "url": "/static/media/rep_grimace.fa1ba722.jpg"
+    "revision": "f1c9f240e9e8a7b002f1dd169a65852a",
+    "url": "/static/media/resume.f1c9f240.png"
   },
   {
-    "revision": "29c75eafda184653882f65d572f692b3",
-    "url": "/static/media/rep_joe.29c75eaf.png"
+    "revision": "56e052260b152bf456928756fe8a6e4a",
+    "url": "/static/media/resume2020img1.56e05226.jpg"
   },
   {
-    "revision": "fdf3eb3a6e07412ff9ccbc0859705b0f",
-    "url": "/static/media/rep_slug.fdf3eb3a.png"
-  },
-  {
-    "revision": "b5452200d1f28a92aa37631373b94919",
-    "url": "/static/media/rep_tobs.b5452200.png"
+    "revision": "04cf619ce085a3040738a6c155286da0",
+    "url": "/static/media/resume2020img2.04cf619c.jpg"
   },
   {
     "revision": "679fe8ce7abf9359c87f5ee0dd5184a3",
@@ -118,10 +118,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "9e77b06d0bff5f0f68dece8f8ae4db28",
     "url": "/static/media/viewsunset.9e77b06d.jpg"
-  },
-  {
-    "revision": "c7eb491b7aa7ee24af245906a72384de",
-    "url": "/static/media/white2.c7eb491b.jpg"
   },
   {
     "revision": "376a8984dc2b33bb8fb1c58db74be7d6",
