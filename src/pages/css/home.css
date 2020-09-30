@@ -1,12 +1,73 @@
-.portfolio_link {
+.homeH1 {
+  font-family: 'Cousine'
+}
 
-  border: 4px solid rgb(150,255,100,.1);
+.link_container .img {
+  box-shadow: 0px 10px 30px 5px rgba(255,255,255,0.2);
+
+
+
+
+}
+
+.portfolio_bar {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 80%;
+
+  margin: 0 auto;
+  margin-top: 5%;
+  transform: perspective(9cm);
 }
-div.portfolio_link > div {
-  flex: auto
+
+.portfolio_bar > div {
+
+  position: static;
+  flex: 1;
+  height: 175px;
+  width: 250px;
+
+}
+.portfolio_bar div.side .img {
+  z-index: 1999
+}
+
+.portfolio_bar .side .img, .portfolio_bar .side h3{
+  filter: blur(4px);
+
+}
+div.side:hover > h3, div.side .img:hover {
+  filter:blur(0px);
+  cursor: pointer
+
+}
+
+div.side > i {
+  position: relative;
+  top: -150px;
+  opacity: .9;
+
+}
+div.side .img:hover ~ i {
+  filter: blur(4px);
+  z-index: -1;
+  opacity: .3
+}
+
+.portfolio_bar .center {
+  height: 250px;
+  width: 300px;
+  flex: 1.5;
+  margin-left: 2%;
+  margin-right: 2%;
+  z-index: 2000
+}
+
+h3 {
+  font-family: 'Cousine'
+
 }
 .welcome {
   text-align: center;

@@ -80,7 +80,7 @@ function Application(){
 
       <div>
 
-      <div className=" navbar mx-auto bg-black text-white w-full inline-block shadow-md first font-Actor text-Actor">
+      <div className=" navbar mt-0 mx-auto bg-black text-white w-full inline-block shadow-md first">
         <div className="signinBox mr-5 float-left overflow-hidden">
            {!user?
           <Link to="/SignIn">
@@ -122,7 +122,7 @@ function Application(){
           </li> */}
 
           <li className="dropdown  mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100">
-          <button className="drop_down_button p-16px mx-5 w-15 hover:bg-gray-700 float-left hover:text-blue-100   border-none">Projects </button>
+          <button className="drop_down_button p-16px mx-5  hover:bg-gray-700 float-left hover:text-blue-100   border-none">Projects </button>
                 <div className="dropdown_contents   w-full bg-black ">
                   <Link to="./ComeVisit" className="alink py-1 inline hover:bg-grey-700"> Come Visit </Link>
                   <Link to="./ColorPlay" className="alink py-1 inline hover:bg-grey-700"> Color Play </Link>
@@ -178,7 +178,7 @@ function Application(){
 
           <News />
         </Route>
-        <Route path="/Resume">
+        <Route path="/Resume" exact>
 
           <Resume />
         </Route>

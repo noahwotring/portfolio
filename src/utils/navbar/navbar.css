@@ -50,14 +50,17 @@
   display: inline-block
 }
 .dropdown:hover .dropdown_contents{
-  display:block;
+  display:inline-block;
 
+}
+.dropdown:hover {
 }
 .dropdown:hover .drop_down_button {display: block}
 .dropdown_contents .alink {
   color: white;
   text-decoration: none;
   display: block;
+
 
 
 }

@@ -39,7 +39,6 @@ const SimonSings = () => {
   const [responseState,toggleResponseState] = useState(false);
 useEffect(() => {
   if(responseState){
-    console.log(progression)
 
     }
 
@@ -53,7 +52,11 @@ useEffect(() => {
     } else if(responseState){
       addGuess([]);
     } else {
-
+      console.log('game ended')
+      toggleResponseState(!responseState);
+      addToProgression([]);
+      addGuess([]);
+      resetGame();
     }
   },[gamePlaying])
 
@@ -94,9 +97,7 @@ useEffect(() => {
 
 
   const resetGame = () => {
-    addToProgression([]);
     nextRound(0);
-    toggleGame(!gamePlaying)
   }
 
 
@@ -137,10 +138,11 @@ useEffect(() => {
           var audio = new Audio(fart);
           alert("Failure");
           audio.play();
-          addToProgression([]);
 
           toggleResponseState(!responseState);
           toggleGame(!gamePlaying);
+          addToProgression([]);
+          addGuess([]);
           resetGame();
         }
         else {
@@ -201,26 +203,26 @@ useEffect(() => {
          </div>
 
   return (
-    <div className="container relative mx-auto">
-      <div className="text-center block my-8 mx-auto contents-center border w-1/2 startContainer">
+    <div className=" relative mx-auto ">
+      <div className="text-center block my-8 mx-auto contents-center  w-1/2 startContainer">
         <h1 className=" simonsingsH1 "> Simon Sings </h1>
-        <button className={`click_button border float-right hover:bg-red-700 text-white font-bold h-32 w-32  rounded-full  shadow-2xl ${gamePlaying? "bg-red-800" : "  bg-green-800 "}`} onClick={() => toggleGame(!gamePlaying)}> {gamePlaying? "End Game" : "Start Game"} </button>
-        <p className="mt-0 ml-1/2"> Round: {round}</p>
+        <button className={`border text-white font-bold  w-2/12 glow-on-hover rounded-full ${gamePlaying ? "click_button" : " "} `} onClick={() => toggleGame(!gamePlaying)}> {gamePlaying? "End Game" : "Start Game"} </button>
+        <p className="mt-0 ml-0 "> Round: {round}</p>
 
       </div>
 
 
       <div className="gridContainer block">
         <div className="grid grid-cols-3 gap-0">
-          <div id="1" className="soundBox1 soundBox" onClick={(e) => soundBoxPressHandler(e)}/>
-          <div id="2" className="soundBox2 soundBox"  onClick={(e) => soundBoxPressHandler(e)}/>
-          <div id="3" className="soundBox3 soundBox"  onClick={(e) => soundBoxPressHandler(e)}/>
-          <div id="4" className="soundBox4 soundBox" onClick={(e) => soundBoxPressHandler(e)} />
-          <div id="5" className="soundBox5 soundBox" onClick={(e) => soundBoxPressHandler(e)}/>
-          <div id="6" className="soundBox6 soundBox" onClick={(e) => soundBoxPressHandler(e)}/>
-          <div  id="7" className="soundBox7 soundBox"onClick={(e) => soundBoxPressHandler(e)} />
-          <div id="8" className="soundBox8 soundBox"onClick={(e) => soundBoxPressHandler(e)} />
-          <div id="9" className="soundBox9 soundBox" onClick={(e) => soundBoxPressHandler(e)}/>
+          <div id="1" className="soundBox1 soundBox" onClick={(e) => soundBoxPressHandler(e)}> <div className="centerBoop"> </div> </div>
+          <div id="2" className="soundBox2 soundBox"  onClick={(e) => soundBoxPressHandler(e)}><div className="centerBoop"> </div></div>
+          <div id="3" className="soundBox3 soundBox"  onClick={(e) => soundBoxPressHandler(e)}><div className="centerBoop"> </div></div>
+          <div id="4" className="soundBox4 soundBox" onClick={(e) => soundBoxPressHandler(e)} ><div className="centerBoop"> </div></div>
+          <div id="5" className="soundBox5 soundBox" onClick={(e) => soundBoxPressHandler(e)}><div className="centerBoop"> </div></div>
+          <div id="6" className="soundBox6 soundBox" onClick={(e) => soundBoxPressHandler(e)}><div className="centerBoop"> </div></div>
+          <div  id="7" className="soundBox7 soundBox"onClick={(e) => soundBoxPressHandler(e)} ><div className="centerBoop"> </div></div>
+          <div id="8" className="soundBox8 soundBox"onClick={(e) => soundBoxPressHandler(e)} ><div className="centerBoop"> </div></div>
+          <div id="9" className="soundBox9 soundBox" onClick={(e) => soundBoxPressHandler(e)}><div className="centerBoop"> </div></div>
         </div>
 
     </div>

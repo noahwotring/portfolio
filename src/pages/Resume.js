@@ -10,7 +10,7 @@ export const Skills = () => {
 
       document.querySelector('.skillsList').classList.toggle('closed');
       document.querySelector('.caret').classList.toggle('closed')
-
+      console.log(window.pageYOffset)
   },[skills])
   return (
     <div className="skills block  mx-auto px-32 ">
@@ -35,6 +35,7 @@ export const Skills = () => {
     </div>
   )
 }
+
 
 export const Experience = () => {
   return (
@@ -80,12 +81,25 @@ const Resume = () => {
 
   },[skills])
   const [upButton, toggleUpButton] = useState(false)
+  const [lastScrollTop,changeScrollTop] = useState(0);
   useEffect(() => {
+    console.log(lastScrollTop);
+    document.addEventListener('scroll', function() {
+      let st = window.scrollY || document.documentElement.scrollTop;
+      console.log(st + " " + lastScrollTop)
+      if(st < lastScrollTop && upButton){
+        toggleUpButton(!upButton);
+      }
+      changeScrollTop(st <= 0 ? 0 : st); // For Mobile or negative scrolling
+    },false)
+  },[lastScrollTop]
 
-  })
+  )
+
 
 
   const clickHandler = (e) => {
+    console.log(document.scrollingElement.scrollTop)
     let there = e.currentTarget.value;
     let theLink = document.querySelector(`#${there}`);
     theLink.scrollIntoView({
@@ -94,9 +108,9 @@ const Resume = () => {
     })
     if(upButton){
 
-      toggleUpButton(false)
+      toggleUpButton(!upButton)
     } else {
-      setTimeout(() => {toggleUpButton(true) },500)
+      setTimeout(() => {toggleUpButton(!upButton) },500)
     }
 
   }
@@ -117,12 +131,12 @@ const Resume = () => {
 
           <div className="inline-block  relative ml-32 ">
             <h1 className="resume text-6xl h1resume"> Noah Kumar Wotring </h1>
-            <h2 className=""> Full-Stack Web Developer </h2>
+            <h2 className=""> Full-Stack Developer </h2>
             </div>
           <p className="inline-block  float-right ">9722 Sibley Cir, Orlando FL 32836 <br />
                                     614-312-0290 <br />
                                     noah13wotring@outlook.com <br />
-                                    <a href="www.linkedin.com/in/noahwotring" className="hover:text-blue-800 text-blue-400"> Linked In  <i class="fa fa-linkedin-square" ></i>  </a>
+                                    <a href="www.linkedin.com/in/noahwotring" className="hover:text-blue-800 text-blue-400"> Linked In  <i className="fa fa-linkedin-square" ></i>  </a>
           </p>
         </span>
 
@@ -132,7 +146,7 @@ const Resume = () => {
           <b >Objective </b>: To create something powerful, something meaningful, and something beautiful. I seek to work with a team of like-minded individuals where I may use my skills as a Full-Stack Developer to help us achieve something greater than ourselves.
          </p>
          <div className="skills block  mx-auto px-32 " id="skillsID" >
-          <span className="block"> <h1 className="skills   inline    "> Skills </h1> <button classList="clickbutton" onClick={()=>toggleSkills(!skills)}> <div className="caret closed"> {"       "}> </div></button> </span>
+          <span className="block"> <h1 className="skills   inline    "> Skills </h1> <button className="clickbutton" onClick={()=>toggleSkills(!skills)}> <div className="caret closed"> {"       "}> </div></button> </span>
 
           <ul className="skillsList closed  list-disc" >
             <li className="" >Javascript(3+ years)</li>

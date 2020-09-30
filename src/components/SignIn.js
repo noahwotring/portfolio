@@ -4,6 +4,7 @@ import {UserContext} from "../providers/UserProvider";
 import {createBrowserHistory} from "../utils/history.js";
 import {auth,local,session} from '../firebase.js';
 import {signInWithGoogle} from '../firebase.js';
+import "./signinup.css";
 
 
 const SignIn = () => {
@@ -30,7 +31,7 @@ const SignIn = () => {
       };
   const onChangeHandler = (event) => {
     const {name,value} = event.currentTarget;
-
+    console.log(event.currentTarget.value)
     if(name === 'userEmail'){
       setEmail(value)
     }
@@ -41,14 +42,14 @@ const SignIn = () => {
   return (
     <div className="mt-8 my-auto opacity-150 w-full absolute  text-center" >
       <h1 className="text-3x1 mb-4 text-center font-bold"> Sign In </h1>
-      <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 py-8 px-4 md:px-8">
-        {error !== null && <div className="py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
-        <form className="">
-          <label htmlFor="userEmail" className="block">
+    <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
+        {error !== null && <div className="py-4 bg-red-600 w-full text-black text-center mb-3">{error}</div>}
+        <form className=" text-black">
+          <label htmlFor="userEmail" className="block text-white"> User E-Mail
           </label>
           <input
             type="email"
-            className="my-1 p-1 w-full"
+            className="my-1 p-1 w-full text-black signForm"
             name="userEmail"
             value={email}
             placeholder="E.g: noah123@gmail.com"
@@ -58,7 +59,7 @@ const SignIn = () => {
             <br />
             <br />
 
-          <label htmlFor="userPassword" className="block">
+          <label htmlFor="userPassword" className="block text-white">
             Password:
           </label>
           <input

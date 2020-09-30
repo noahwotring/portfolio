@@ -1,29 +1,105 @@
-div {
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
 }
 
 .startContainer {
   margin: 0 auto;
+  font-family: 'Gruppo';
+
 }
 h1.simonsingsH1 {
-  color: black;
+  color: white;
   font-size: 50px;
   display: inline;
   margin-top: 30px;
   text-align: center;
-  font-weight: bolder
+  font-weight: bolder;
 }
 
 .startButton {
   display: inline;
 }
-.click_button {
+.click_button:before {
   display: inline-block;
-  border: 2px solid black;
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background-size: 400%;
 
+  border-radius: 10px;
+
+}
+.click_button:after {
+
+      background: transparent;
+
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 .soundBoxSelected {
   transform: scale(1.05);
   filter: brightness(2);
+}
+.soundBoxSelected .centerBoop {
+  filter: brightness(10);
+  box-shadow: 0px 10px 40px 30px rgba(255,255,255,0.9);
+
 }
 .gridContainer {
   width:450px;
@@ -33,6 +109,7 @@ h1.simonsingsH1 {
 }
 /* soundbox stuff */
 div.soundBox {
+  position: static;
   width: 130px;
   height:130px;
   margin: 0;
@@ -42,11 +119,27 @@ div.soundBox {
   transition: all .05s;
 
 
+
 }
 
 .soundBox:hover {
-  opacity: .8;
-  box-shadow: -2px 2px white, -2px 2px white, -1px 1px 3px white;
+  opacity: .9;
+  box-shadow: -2px 2px rgb(255,255,255,.1), -2px 2px rgb(255,255,255,.1), -1px 1px 3px rgb(255,255,255,.1);
+}
+div.soundBox > div.centerBoop {
+  height:.001%;
+  width: .001%;
+  position: relative;
+  top: 49%;
+  left:49%;
+  border-radius: 100%;
+  background: rgb(255,255,255,1);
+
+  box-shadow: 0px 10px 40px 10px rgba(255,255,255,0.9);
+
+  background-position: bottom center;
+  background-size: cover;
+  transition: all 2s
 }
 /*box-shadow: -2px 2px black, -2px 2px black, -1px 1px black;
   border: 1px solid black; */

@@ -45,16 +45,16 @@ const SignUp = (props) => {
     }
   };
   return(
-    <div className="mt-8 my-auto opacity-150 w-full absolute  text-center" >
-      <h1 className="text-3x1 mb-4 text-center font-bold"> Sign Up </h1>>
+    <div className="mt-8 my-auto opacity-150 w-full absolute  text-center signForm" >
+      <h1 className="text-3x1 mb-4 text-center font-bold"> Sign Up </h1>
     <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
     {error !== null && (
       <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
         {error}
       </div>
       )}
-      <form className="">
-        <label className="block" htmlFor="displayName">
+      <form className=" text-black">
+        <label className="block text-white" htmlFor="displayName">
           Username: {" "}
         </label>
         <input
@@ -67,7 +67,7 @@ const SignUp = (props) => {
           onChange = {(event) => onChangeHandler(event)}
         />
         <br />
-        <label htmlFor="userEmail">
+        <label htmlFor="userEmail" className="text-white">
           E-Mail:{" "}
         </label>
         <input
@@ -80,7 +80,7 @@ const SignUp = (props) => {
           onChange = {(event) => onChangeHandler(event)}
         />
         <br />
-        <label htmlFor="photoURL">
+        <label htmlFor="photoURL" className="text-white">
           Link to Profile Picture: {" "}
         </label>
         <input
@@ -93,7 +93,7 @@ const SignUp = (props) => {
           onChange = {(event) => onChangeHandler(event)}
         />
         <br />
-        <label className="block" htmlFor="userPassword">
+        <label className="block text-white" htmlFor="userPassword">
           Password:{" "}
         </label>
         <input

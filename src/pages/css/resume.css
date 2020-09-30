@@ -22,6 +22,7 @@
   color: #EFBB35;
   font-weight: lighter;
   text-decoration: underline;
+  font-family: "Actor"
 
 }
 
@@ -46,11 +47,11 @@ h1.skills {
   box-sizing: border-box;
   width: 75%;
   text-align: left;
-  margin-bottom: 48px
+  margin-bottom: 48px;
 
 }
 .skillsList{
-  width: 50%;
+  width: 80%;
   flex-direction: row;
   flex-wrap: wrap;
   margin-left: 120px;

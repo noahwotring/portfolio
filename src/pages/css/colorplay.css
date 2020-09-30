@@ -1,10 +1,17 @@
 :root {
   --colorplay-r: 255;
   --colorplay-g: 255;
-  --colorplay-b: 255
+  --colorplay-b: 255;
+  --colorplay-gradient: 0%
+}
+
+h1.colorplay{
+  font-family: 'Fredoka One';
+  font-size: 56px;
+  color: rgb(var(--colorplay-r),var(--colorplay-g),var(--colorplay-b))
 }
 .colorplaybase {
-  background: linear-gradient(to bottom right, rgb(0,0,255,.3) , rgb(0,255,0,.3),  rgb(255,0,0,.3) 40% );
+  background: linear-gradient(to bottom right, rgb(0,0,var(--colorplay-r)) var(--colorplay-gradient) , rgb(0,var(--colorplay-g),0) 40%,  rgb(var(--colorplay-b),0,0) 70% );
   width: 100%;
   margin: 0px auto;
   height: 100vh;
@@ -12,17 +19,17 @@
   margin-top: -5px;
 }
 .color-container {
+  box-sizing: border-box;
   width: 400px;
   height: 400px;
-  margin-left: 30%;
-  margin-top: 5%;
+
   border: solid 1px black;
 
   background-color: rgb(var(--colorplay-r),var(--colorplay-g),var(--colorplay-b))
 }
 .controls {
   margin-top: 5%;
-
+  width: 100%;
   display: inline-flex;
   flex-direction:column;
   margin-left: 15%;
@@ -32,13 +39,30 @@
   height: 300px;
 
 }
-
+.colorworld {
+  font-family: 'Actor','Raleway'
+}
 .control {
-
-  margin: 15px
+  display: inline-block;
+  margin: 15px;
+  font-family: 'Fredoka One'
 
 }
 
+
+.control input {
+  display: inline
+}
+
+.r{
+  color: red
+}
+.g{
+  color: green
+}
+.b{
+  color: blue
+}
 h1.titleGradient{
   size: 50px;
   -webkit-background-clip: text;

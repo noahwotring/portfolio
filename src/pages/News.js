@@ -23,6 +23,13 @@ const News = () => {
     return time;
   }
 
+  const sortByPersonFirst = (a,b) => {  return  a.owner > b.owner ? 1 : -1};
+  const sortByDateFirst = (a,b) => {return b.date_created-a.date_created};
+  const sortByDateLast = (a,b) => {return b.date_created > a.date_created ? -1 : 1};
+
+
+
+
   const onChangeHandler = (event) => {
     if(event.target.id === "potentialPostText"){
       editPotentialPost(event.target.value);
@@ -91,12 +98,12 @@ const News = () => {
         <button type="button" onClick={() => revealSearchOptions()} > Search Button </button>
         <ul className="searchList ">
           <li>title-ascending </li><br />
-          <li>title-descending</li><br />
+          <li>title-descending</li><br /> (a,b) => {return b.date_created-a.date_created}
         </ul>
         */}
 
         <div className=" news_post_container mx-auto w-12/12 md:w-12/12 mt-8 opacity-75 box item-center ">
-          {posts.sort((a,b) => {return b.date_created-a.date_created}).map((post) => <NewsPost postNum={x+=1} body={post.body} title={post.title} id={post.id} owner_id={post.owner_id} owner={post.owner} date_created={timeConverter(post.date_created.seconds)} />)}
+          {posts.sort((a,b) => sortByDateLast(a,b)).map((post) => <NewsPost postNum={x+=1} body={post.body} title={post.title} id={post.id} owner_id={post.owner_id} owner={post.owner} date_created={timeConverter(post.date_created.seconds)} />)}
           <div className="submitPost container block bg-grey-600 rounded-lg">
             <div className="form block flex box-content w-half">
             <div className="center_block m-auto w-half">
