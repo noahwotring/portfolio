@@ -15,7 +15,7 @@ const Home = () => {
     {
       name:"Resume",
       pic: resume,
-      linke: "./Resume"
+      link: "./Resume"
     },
     {
       name: "Come Visit",
@@ -84,7 +84,7 @@ const Home = () => {
 
 
   return(
-   <div className="ml-16 relative container text-center mx-auto  here " >
+   <div className=" relative container text-center mx-auto  here " >
     <h1 className="text-center text-5xl mt-10 font-semibold  homeH1 "> Not Another Portfolio! </h1>
     <p className="ml-48 block"> A Portfolio By Noah Kumar Wotring </p>
 
