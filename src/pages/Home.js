@@ -57,12 +57,16 @@ const Home = () => {
   //handles rotate of example array
   const rotateHandler = (e) =>{
     if(e.currentTarget.id === "counter"){
+      console.log("counter")
+
       rotate({
         previous: rotateCounter(showing.previous),
         current: rotateCounter(showing.current),
         next: rotateCounter(showing.next)
       })
     } else if (e.currentTarget.id === "clockwise"){
+      console.log("clock")
+
       rotate({
         previous: rotateClockwise(showing.previous),
         current: rotateClockwise(showing.current),
@@ -80,7 +84,7 @@ const Home = () => {
 
 
   return(
-   <div className="ml-16 relative container text-center  " >
+   <div className="ml-16 relative container text-center mx-auto  here " >
     <h1 className="text-center text-5xl mt-10 font-semibold  homeH1 "> Not Another Portfolio! </h1>
     <p className="ml-48 block"> A Portfolio By Noah Kumar Wotring </p>
 
