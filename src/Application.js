@@ -16,6 +16,7 @@ import {auth,getAllUsers} from './firebase.js';
 import './utils/navbar/navbar.css';
 import SimonSings from "./pages/SimonSings";
 import ComeVisit from "./pages/ComeVisit";
+import SunDial from "./pages/SunDial";
 
 /*
 import ProfilePage from ".components/ProfilePage";
@@ -202,6 +203,9 @@ function Application(){
 
           <Home />
         </Route>
+
+  
+
 
 
       </Switch>

@@ -46,7 +46,7 @@ const SignUp = (props) => {
   };
   return(
     <div className="mt-8 my-auto opacity-150 w-full absolute  text-center signForm" >
-      <h1 className="text-3x1 mb-4 text-center font-bold"> Sign Up </h1>
+      <h1 className="text-3x1 mb-4 text-center font-bold"> Sign Up [Under Construction]</h1>
     <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
     {error !== null && (
       <div className="py-4 bg-red-600 w-full text-white text-center mb-3">

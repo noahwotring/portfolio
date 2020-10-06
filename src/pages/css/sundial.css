@@ -1,0 +1,48 @@
+.sundial_body {
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: black;
+  position: absolute;
+  right: 40%;
+  border-radius: 100%;
+  overflow: hidden
+
+}
+
+.sundial_pane{
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background-color: yellow;
+
+  position: absolute;
+  transform-origin: bottom right
+
+
+}
+
+
+.a {
+  transform: rotate(90deg);
+  z-index: 4;
+}
+.b {
+  transform: rotate(180deg);
+
+}
+
+.sundial_pane.c {
+  transform: rotate(270deg);
+
+}
+.sundial_pane.d {
+  transform: rotate(0deg);
+
+
+}
+.sundial_pane.blackout {
+  background-color: blue;
+  transform: rotate(360deg)
+}
